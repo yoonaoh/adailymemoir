@@ -1,1 +1,1 @@
-# adailymemoir
+# a-daily-memoir
