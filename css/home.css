@@ -1,3 +1,17 @@
 html {
   background-color: #d6e4f0;
 }
+
+h1 {
+  font-family: 'Ovo', serif;
+  font-size: 44pt;
+  color: #677B9C;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 20pt;
+  color: #7389ae;
+  text-align: center;
+}
