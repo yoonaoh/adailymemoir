@@ -1,7 +1,31 @@
-h1 {
+body {
+  background-color: #7b7fb0;
+}
+
+#landing {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+h1 {
+  font-family: 'Karma', serif;
+  font-size: 60pt;
+  font-weight: lighter;
+  color: white;
+}
+
+#about {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: white;
+}
+
+i {
+  color: white;
 }

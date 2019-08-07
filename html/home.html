@@ -2,19 +2,32 @@
 <html>
 <head>
   <title> a daily memoir </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../../../semantic/dist/semantic.min.css">
+  <script src="../../../../../semantic/dist/semantic.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Karma&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
 
-  <div class="">
-    <h1> a daily memoir </h1>
-      <form action="/login">
-        <input id="login" type="submit" value="begin writing"/>
-      </form>
+  <div id="landing">
+    <h1 id="logo"> a daily memoir </h1>
+    <form action="/login" method="get" id="login"></form>
+    <button class="huge ui inverted button" form="login" type="submit"> begin writing </button>
+    <div>
+    <i class="huge caret down link icon"></i>
+    </div>
   </div>
+  <!-- <div>
+  <a href="#about"> learn more </a>
+  </div> -->
 
-  <div class="about">
-    a daily memoir is a journal.
+  <div id="about">
+    <p> a daily memoir is your own personal collection of memories. record your
+    thoughts, feelings, and actions in this journaling app that will
+    encapsulate the moments of your life one day at a time. even if your day
+    seemed unremarkable, go ahead and write about it because sometimes
+    the most beautiful things in life come from the mundane.</p>
   </div>
 
 </body>
