@@ -1,13 +1,5 @@
 body {
-  background-color: #7b7fb0;
-}
-
-#landing {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  background-color: #525280;
 }
 
 h1 {
@@ -15,11 +7,6 @@ h1 {
   font-size: 60pt;
   font-weight: lighter;
   color: white;
-}
-
-#about {
-  height: 100%;
-  width: 100%;
 }
 
 a {

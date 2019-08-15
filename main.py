@@ -127,9 +127,12 @@ class Favorites(webapp2.RequestHandler):
         template = env.get_template('favorites.html')
         self.response.write(template.render())
 
-class AddNewEntry(webapp2.RequestHandler):
+class NewEntry(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('new_entry.html')
+        self.response.write(template.render())
+    def post(self):
+        self.redirect('/dashboard')
 #
 # class DisplayEntry(webapp2.RequestHandler):
 
@@ -145,7 +148,7 @@ app = webapp2.WSGIApplication([
     ('/registration', Registration),
     ('/dashboard', Dashboard),
     ('/collections', Collections),
-    ('/favorites', Favorites)
-    # ('/new_entry', AddNewEntry),
+    ('/favorites', Favorites),
+    ('/new_entry', NewEntry)
     # ('/entry', DisplayEntry) # how to make these entry urls unique?
 ], debug=True)

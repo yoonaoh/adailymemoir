@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> a daily memoir </title>
-  <link rel="stylesheet" href="../css/home.css">
+  <title> new entry </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../../../semantic/dist/semantic.min.css">
+  <script src="../../../../../semantic/dist/semantic.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Karma&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/new_entry.css">
 </head>
+
 <body>
 
   <!-- This gathers the important information about each entry. -->
-  <form method="post" action="/entry">
-    <input type="text" name="title"/>
-    <input type="date" name="date"/>
-    <input type="text" name="content"/>
+  <form id="entry-form" method="post" action="/new_entry">
+    <div id="title-div" class="entry">
+      <input id="title" type="text" name="title" placeholder="title"/>
+    </div>
+
+    <div id="date-div" class="entry">
+      <input id="date" type="date" name="date" required="required"/>
+    </div>
+
+    <div id="content-div" class="entry">
+      <textarea name="content" id="content" placeholder="how was your day today?"></textarea>
+    </div>
   </form>
 
   <!-- These are the save and cancel buttons. -->
-  <form method="" action="">
-    <input type=""/>
-    <input type=""/>
-  </form>
+  <div id="save-cancel-buttons">
+    <button id="save-button" class="huge ui inverted button" form="entry-form" type="submit"> save &nbsp &nbsp O </button>
+    <button id="cancel-button" class="huge ui inverted button" formaction="/dashboard" formmethod="get"> cancel &nbsp &nbsp X </button>
+  </div>
 
 </body>
 </html>
