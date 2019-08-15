@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: #525280;
-}
+} */
 
 h1 {
   font-family: 'Karma', serif;
@@ -15,4 +15,15 @@ a {
 
 i {
   color: white;
+}
+
+#landing {
+  background-color: #525280;
+  height: 100%;
+  width: 100%;
+}
+
+#about {
+  height: 100%;
+  width: 100%;
 }
