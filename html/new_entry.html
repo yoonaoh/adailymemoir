@@ -3,11 +3,11 @@
 <head>
   <title> new entry </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../../../../../semantic/dist/semantic.min.css">
-  <script src="../../../../../semantic/dist/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+  <script src="/semantic/dist/semantic.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Karma&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/new_entry.css">
+  <link rel="stylesheet" href="../static/new_entry.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
   <!-- These are the save and cancel buttons. -->
   <div id="save-cancel-buttons">
     <button id="save-button" class="huge ui inverted button" form="entry-form" type="submit"> save &nbsp &nbsp O </button>
-    <button id="cancel-button" class="huge ui inverted button" formaction="/dashboard" formmethod="get"> cancel &nbsp &nbsp X </button>
+    <a href="/dashboard"><button id="cancel-button" class="huge ui inverted button"> cancel &nbsp &nbsp X </button></a>
   </div>
 
 </body>

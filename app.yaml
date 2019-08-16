@@ -1,5 +1,3 @@
-application: adailymemoir
-version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -9,8 +7,11 @@ handlers:
 #   static_files: favicon.ico
 #   upload: favicon\.ico
 
-- url: /css
-  static_dir: css
+- url: /static
+  static_dir: static
+
+- url: /semantic
+  static_dir: semantic
 
 - url: .*
   script: main.app

@@ -1,0 +1,129 @@
+body {
+  background-color: #7b7fb0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: transparent;
+  overflow: hidden;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#sidenav-button {
+  padding: 12px;
+  color: white
+}
+
+/* Reference: https://www.w3schools.com/howto/howto_js_sidenav.asp */
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #a7abd6;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+#sidenav-logout {
+  padding-left: 12px;
+  font-size: 14pt;
+  text-decoration: none;
+  color: white;
+}
+
+#greeting {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 22pt;
+  color: white;
+}
+
+#sidenav-links a {
+  margin-top: 70px;
+  text-decoration: none;
+  font-size: 26pt;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 12px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: black;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  color: white;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 36px;
+}
+
+/* On smaller screens, where height is less than 450px,
+change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+#searchbar {
+  padding: 10px;
+}
+
+/* Reference: https://www.w3schools.com/css/css_grid.asp */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  background-color: #898ec4;
+  position: absolute;
+  bottom: 20px;
+  height: 70%;
+  width: 95%;
+  padding: 30px;
+}
+
+.grid-item {
+  background-color: #a1a4c9;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#newentry-button {
+  opacity: 0.75;
+  background-color: #b0b2cf;
+  border: 4px dotted white;
+  color: white;
+  font-size: 36pt;
+}

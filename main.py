@@ -57,8 +57,6 @@ class Login(webapp2.RequestHandler):
         user = users.get_current_user()
         # If the user is logged into Google
         if user:
-            # Take them to the dashboard.
-            writer = Writer.get_by_id(user.user_id())
             # When the user signs out, take them to the home page.
             logout_url = '<a href="%s"> sign out </a>' % users.create_logout_url('/')
             writer = Writer.get_by_id(user.user_id())
@@ -68,15 +66,20 @@ class Login(webapp2.RequestHandler):
                 self.redirect('/registration')
         else:
             # After the user logins, take them to the dashboard.
-            login_url = '<a href="%s"> sign in </a>' % users.create_login_url('/dashboard')
+            login_url = '<a href="%s"> sign in </a>' % users.create_login_url('/register')
             template = env.get_template('login.html')
             template_vars = {"login_url" : login_url}
             self.response.write(template.render(template_vars))
 
 class Registration(webapp2.RequestHandler):
     def get(self):
-        template = env.get_template('registration.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        writer = Writer.get_by_id(user.user_id())
+        if writer:
+            self.redirect('/dashboard')
+        else:
+            template = env.get_template('registration.html')
+            self.response.write(template.render())
     def post(self):
         user = users.get_current_user()
         if not user:
@@ -97,24 +100,23 @@ class Dashboard(webapp2.RequestHandler):
         user = users.get_current_user()
         writer = Writer.get_by_id(user.user_id())
 
-        if !writer:
+        if not writer:
             self.redirect('/registration')
 
-        # Find all the Entries that belong to the current writer.
-        all_entries = Entry.query(Entry.writer_key == writer.key)
-        # Limit to the first 9 recent entries!!!! (fetch_page be able to show more)
-        first_nine_entries = all_entries.order(-Entry.date).fetch(9)
-
+        # # Find all the Entries that belong to the current writer.
+        # all_entries = Entry.query(Entry.writer_key == writer.key)
+        # # Limit to the first 9 recent entries!!!! (fetch_page be able to show more)
+        # first_nine_entries = all_entries.order(-Entry.date).fetch(9)
+        #
+        # # Template variables to use and display in dashboard.html
+        # entries = {
+        # "display_entries" : first_nine_entries,
+        # "name" : writer.name,
+        # "logout_url" : logout_url
+        # }
         # Render the dashboard template
         template = env.get_template('dashboard.html')
-        # Template variables to use and display in dashboard.html
-        entries = {
-        "display_entries" : first_nine_entries,
-        "name" : writer.name,
-        "logout_url" : logout_url
-        }
-        self.response.write(template.render(entries))
-        self.response.write(logout_url)
+        self.response.write(template.render())
 
 # # Renders the favorites page
 class Favorites(webapp2.RequestHandler):
@@ -136,10 +138,14 @@ class NewEntry(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         # Get the information from the form and make it into an entry object
-
+        event = Event(
+        title = self.request.get('title'),
+        date = self.request.get('date'),
+        content = self.request.get('content'),
+        writer_key = Writer.get_by_id(user.user_id()).key
+        )
+        event.put()
         self.redirect('/dashboard')
-
-# class DisplayEntry(webapp2.RequestHandler):
 
 # Renders the monthly collections page
 class Collections(webapp2.RequestHandler):
