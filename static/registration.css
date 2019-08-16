@@ -17,7 +17,10 @@ p {
 input {
   height: 24pt;
   width: 120pt;
-  font-size: 18pt;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 16pt;
+  text-align: center;
+  outline: none;
   border: none;
 }
 

@@ -19,10 +19,27 @@ p {
   align-items: center;
 }
 
-#login-url {
+#login-url a {
   text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 3px 10px;
 }
 
-#login-url:active {
+#login-url a:active {
+  text-decoration: none;
   color: white;
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+
+#login-url a:hover {
+  text-decoration: none;
+  color: #7b7fb0;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 3px 10px;
 }

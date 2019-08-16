@@ -40,7 +40,14 @@ body {
 }
 
 /* The navigation menu links */
-#sidenav-logout {
+#sidenav-logout a {
+  padding-left: 12px;
+  font-size: 14pt;
+  text-decoration: none;
+  color: white;
+}
+
+#sidenav-logout a:active {
   padding-left: 12px;
   font-size: 14pt;
   text-decoration: none;
@@ -67,7 +74,7 @@ body {
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+#sidenav-links a:hover {
   color: black;
 }
 
