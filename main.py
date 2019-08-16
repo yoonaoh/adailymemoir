@@ -70,13 +70,25 @@ class Login(webapp2.RequestHandler):
             # After the user logins, take them to the dashboard.
             login_url = '<a href="%s"> sign in </a>' % users.create_login_url('/dashboard')
             template = env.get_template('login.html')
-            self.response.write(template.render())
-            self.response.write(login_url)
+            template_vars = {"login_url" : login_url}
+            self.response.write(template.render(template_vars))
 
 class Registration(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('registration.html')
         self.response.write(template.render())
+    def post(self):
+        user = users.get_current_user()
+        if not user:
+            # You shouldn't be able to get here without being logged in
+            self.error(500)
+            return
+        writer = Writer(
+            name = self.request.get('name'),
+            id = user.user_id()
+            )
+        writer.put()
+        self.redirect('/dashboard')
 
 # Renders the dashboard page
 class Dashboard(webapp2.RequestHandler):
@@ -84,6 +96,9 @@ class Dashboard(webapp2.RequestHandler):
         # Who is the current writer?
         user = users.get_current_user()
         writer = Writer.get_by_id(user.user_id())
+
+        if !writer:
+            self.redirect('/registration')
 
         # Find all the Entries that belong to the current writer.
         all_entries = Entry.query(Entry.writer_key == writer.key)
@@ -93,25 +108,13 @@ class Dashboard(webapp2.RequestHandler):
         # Render the dashboard template
         template = env.get_template('dashboard.html')
         # Template variables to use and display in dashboard.html
-        entries = {"display_entries" : first_nine_entries}
+        entries = {
+        "display_entries" : first_nine_entries,
+        "name" : writer.name,
+        "logout_url" : logout_url
+        }
         self.response.write(template.render(entries))
         self.response.write(logout_url)
-
-    # This method is called from the registration page.
-    # Need to be in dashboard because this is where the user will
-    # be taken after they register.
-    def post(self):
-        user = users.get_current_user()
-        if not user:
-            # You shouldn't be able to get here without being logged in
-            self.error(500)
-            return
-        writer = Writer(
-            name= self.request.get('name'),
-            id=user.user_id()
-            )
-        writer.put()
-        self.get()
 
 # # Renders the favorites page
 class Favorites(webapp2.RequestHandler):
@@ -132,8 +135,10 @@ class NewEntry(webapp2.RequestHandler):
         template = env.get_template('new_entry.html')
         self.response.write(template.render())
     def post(self):
+        # Get the information from the form and make it into an entry object
+
         self.redirect('/dashboard')
-#
+
 # class DisplayEntry(webapp2.RequestHandler):
 
 # Renders the monthly collections page

@@ -2,13 +2,52 @@
 <html>
 <head>
   <title> a daily memoir </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../../../semantic/dist/semantic.min.css">
+  <script src="../../../../../semantic/dist/semantic.min.js"></script>
   <link rel="stylesheet" href="../css/dashboard.css">
+  <script src="../js/dashboard.js"></script>
 </head>
 <body>
 
-  <!-- <div id="topnav">
-    <button class="ui icon button"> <i class="bars icon"></i> </button>
-  </div> -->
+  <!-- This code creates the top navigation with links to side nav and searchbar. -->
+  <!-- Reference: https://www.w3schools.com/howto/howto_js_topnav.asp -->
+  <!-- Reference: https://www.w3schools.com/howto/howto_js_sidenav.asp -->
+  <!-- Reference: https://semantic-ui.com/modules/search.html#/definition -->
+  <div class="topnav">
+    <i id="sidenav-button" class="big bars icon" onclick="openNav()"></i>
+    <span id="searchbar" class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="search"><i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </span>
+  </div>
+
+  <div id="sidenav-bar" class="sidenav">
+    <div>
+      <h2 id="greeting">hi, {{name}}</h2>
+      <p id="sidenav-logout"> {{logout_url}} </p>
+      <button class="closebtn" onclick="closeNav()">&times;</button>
+    </div>
+    <div id="sidenav-links">
+      <a class="sidenav-links" href="/favorites"> favorites </a>
+      <a class="sidenav-links" href="/collections"> collections </a>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div id="newentry-button" class="grid-item">+</div>
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+  </div>
 
 </body>
 </html>

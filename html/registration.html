@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> a daily memoir </title>
-  <link rel="stylesheet" href="../css/home.css">
+  <title> register </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../../../semantic/dist/semantic.min.css">
+  <script src="../../../../../semantic/dist/semantic.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/registration.css">
 </head>
 <body>
 
   <p>Welcome, new writer! What is your name? </p>
 
-  <form method="post" action="/dashboard">
+  <form id="name-input" method="post" action="/registration">
     <input type="text" name="name"/>
   </form>
+
+  <button id="register-button" class="big ui inverted button" form="name-input" type="submit"> submit </button>
 
 </body>
 </html>
